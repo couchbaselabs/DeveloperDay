@@ -10,7 +10,7 @@ namespace CouchbaseTraining
 	{
 		static void Main(string[] args)
 		{
-			var options = new string[] { "Connect", "Storage", "JSON Storage", "Retrieve", "CAS", "Observe" };
+			var options = new string[] { "Connect", "Storage", "JSON Storage", "Retrieve", "Atomic Counters", "CAS", "Observe" };
 			
 			for (var i = 1; i <= options.Length; i++)
 			{
