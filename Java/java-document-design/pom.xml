@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.couchbase.sample</groupId>
+    <artifactId>couchbase-sample-design-document</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <name>Couchbase Sample : Design Document</name>
+    <url>http://grallandco.com</url>
+
+    <repositories>
+            <repository>
+                <id>spy</id>
+                <name>Couchbase Repository</name>
+                <layout>default</layout>
+                <url>http://files.couchbase.com/maven2/</url>
+            </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>couchbase</groupId>
+            <artifactId>couchbase-client</artifactId>
+            <version>1.1.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2-beta-2</version>
+                <executions>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

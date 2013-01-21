@@ -1,0 +1,9 @@
+{
+    "name": "couchbase-dev-day",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies":
+    {
+        "couchbase": "0.0.11"
+    }
+}
