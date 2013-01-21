@@ -3,26 +3,26 @@
 
 ## Install C Library via Homebrew
 
-
 [Uninstall Previous Version]
-[$ brew uninstall libcouchbase]
 
-$ brew install https://github.com/couchbase/homebrew/raw/stable/Library/Formula/libcouchbase.rb
+    $ brew uninstall libcouchbase
+
+    $ brew install https://github.com/couchbase/homebrew/raw/stable/Library/Formula/libcouchbase.rb
 
 
 ## Install Couchbase Gem
 
-$ gem install couchbase
+    $ gem install couchbase
 
 
 ## Using the Gem
 
-require 'couchbase'
+    require 'couchbase'
 
 
 ## Gemfile
 
-gem 'couchbase'
+    gem 'couchbase'
 
 
 ## References
