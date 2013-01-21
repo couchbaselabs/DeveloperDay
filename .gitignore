@@ -1,0 +1,6 @@
+output.jpg
+.DS_Store
+
+tmp/*
+tmp
+*.tmp
