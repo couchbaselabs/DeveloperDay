@@ -26,7 +26,7 @@ public class Ex02Storage {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "default", "", "");
+            cb = new CouchbaseClient(uris, "default", "");
 
 
             {
@@ -115,7 +115,6 @@ public class Ex02Storage {
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }

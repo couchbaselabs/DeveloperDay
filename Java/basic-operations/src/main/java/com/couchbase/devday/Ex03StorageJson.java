@@ -36,7 +36,7 @@ public class Ex03StorageJson {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "default", "", "");
+            cb = new CouchbaseClient(uris, "default", "");
 
 
 
@@ -64,13 +64,12 @@ public class Ex03StorageJson {
             }
 
 
-            System.out.println("\n\n\n\n");
+            System.out.println("\n\n");
 
             cb.shutdown(10, TimeUnit.SECONDS);
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }

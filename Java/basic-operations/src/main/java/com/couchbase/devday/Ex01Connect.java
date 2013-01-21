@@ -22,17 +22,16 @@ public class Ex01Connect {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "default", "", "");
+            cb = new CouchbaseClient(uris, "default", "");
 
             System.out.println( cb.getStats() );
 
 
-            cb.shutdown(5, TimeUnit.SECONDS);
+            cb.shutdown(10, TimeUnit.SECONDS);
 
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }

@@ -28,7 +28,7 @@ public class Ex07Cas {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "default", "", "");
+            cb = new CouchbaseClient(uris, "default", "");
 
             Gson json = new Gson();
 
@@ -73,7 +73,6 @@ public class Ex07Cas {
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }

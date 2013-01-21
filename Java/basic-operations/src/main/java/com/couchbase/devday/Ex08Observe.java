@@ -28,7 +28,7 @@ public class Ex08Observe {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "default", "", "");
+            cb = new CouchbaseClient(uris, "default", "");
 
             Gson json = new Gson();
 
@@ -76,11 +76,10 @@ public class Ex08Observe {
 
             System.out.println("\n\n");
 
-            //cb.shutdown(10, TimeUnit.SECONDS);
+            cb.shutdown();
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }

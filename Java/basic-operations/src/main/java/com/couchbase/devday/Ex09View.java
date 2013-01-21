@@ -32,7 +32,7 @@ public class Ex09View {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "beer-sample", "", "");
+            cb = new CouchbaseClient(uris, "beer-sample", "");
 
             Gson json = new Gson();
 
@@ -151,7 +151,6 @@ public class Ex09View {
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }

@@ -25,7 +25,7 @@ public class Ex06NonJsonOps {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "default", "", "");
+            cb = new CouchbaseClient(uris, "default", "");
 
 
             cb.set("store_strings", 10, "The quick brown fox jumped over the lazy dog.");
@@ -74,7 +74,6 @@ public class Ex06NonJsonOps {
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }

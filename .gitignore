@@ -4,3 +4,31 @@ output.jpg
 tmp/*
 tmp
 *.tmp
+
+#IDEs
+
+# IntelliJ specific files/directories
+.idea
+*.ipr
+*.iws
+*.iml
+atlassian-ide-plugin.xml
+
+
+# Eclipse specific files/directories
+.classpath
+.project
+.factorypath
+.settings
+.externalToolBuilders
+bin/
+
+# NetBeans specific files/directories
+.nbattrs
+
+#build
+target/
+
+#custom scripts
+*.sh
+

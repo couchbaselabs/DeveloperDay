@@ -25,7 +25,7 @@ public class Ex05AtomicCounter {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "default", "", "");
+            cb = new CouchbaseClient(uris, "default", "");
 
 
             cb.delete("counter");
@@ -84,7 +84,6 @@ public class Ex05AtomicCounter {
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }

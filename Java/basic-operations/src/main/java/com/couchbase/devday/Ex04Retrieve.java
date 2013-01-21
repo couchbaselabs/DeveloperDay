@@ -40,7 +40,7 @@ public class Ex04Retrieve {
 
         CouchbaseClient cb = null;
         try {
-            cb = new CouchbaseClient(uris, "default", "", "");
+            cb = new CouchbaseClient(uris, "default", "");
             Gson json = new Gson();
 
             // create data
@@ -119,12 +119,10 @@ public class Ex04Retrieve {
 
             System.out.println("\n\n");
 
-            Thread.sleep(500);
-            cb.shutdown(5, TimeUnit.SECONDS);
+            cb.shutdown(10, TimeUnit.SECONDS);
 
         } catch (Exception e) {
             System.err.println("Error connecting to Couchbase: " + e.getMessage());
-            System.exit(0);
         }
 
     }
