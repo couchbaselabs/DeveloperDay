@@ -7,6 +7,6 @@ For a freshly updated installation of requests module and couchbase python clien
     $[sudo] pip install --update couchbase
 
 
-Also for the nice colored terminal output in the samples:
+## Colorized Terminal output via Blessings module
 
     $[sudo] pip install blessings

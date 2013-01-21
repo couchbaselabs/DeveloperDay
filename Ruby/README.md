@@ -3,7 +3,7 @@
 
 ## Install C Library via Homebrew
 
-[Uninstall Previous Version]
+Uninstall Previous Version, if you have it...
 
     $ brew uninstall libcouchbase
 
@@ -14,16 +14,17 @@
 
     $ gem install couchbase
 
+## Colorized Terminal Output via Rainbow Gem
+
+    $ gem install rainbow
 
 ## Using the Gem
 
     require 'couchbase'
 
-
 ## Gemfile
 
     gem 'couchbase'
-
 
 ## References
 
