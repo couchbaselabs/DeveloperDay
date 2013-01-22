@@ -1,11 +1,13 @@
 var couchnode = require('couchbase');
 
-var port = 8080;
+console.log("--------------------------------------------------------------------------");
+console.log("Couchbase Connections");
+console.log("--------------------------------------------------------------------------");
+
 
 couchnode.connect({
-  "username": "",
   "password": "",
-  "hostname": "localhost:8091",
+  "hosts": ["localhost:8091"],
   "bucket": "default"}, 
   function(err, cb) {
     if (err) {
@@ -16,7 +18,8 @@ couchnode.connect({
  console.log( cb );
 
 
- console.log( "\n\nPress ctrl+c to quit" );
+ console.log("\n\n--------------------------------------------------------------------------");
+ console.log( "\tPress ctrl+c to quit" );
 		
 		
 });
