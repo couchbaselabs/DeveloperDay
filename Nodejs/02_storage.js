@@ -1,69 +1,56 @@
 var couchnode = require('couchbase');
 
-var port = 8080;
+console.log("--------------------------------------------------------------------------");
+console.log("Couchbase Storage Operations");
+console.log("--------------------------------------------------------------------------");
 
 couchnode.connect({
-  "username": "",
-  "password": "",
-  "hostname": "localhost:8091",
-  "bucket": "default"}, 
-  function(err, cb) {
-    if (err) {
-      throw (err)
-    }
+	"password": "",
+	"hosts": ["localhost:8091"],
+	"bucket": "default"
+}, function(err, cb) {
+	if (err) {
+		throw (err)
+	}
 
 
-	cb.set( "mytest" ,  "my value" , function (err, meta) {
-	  // in the call back
-  	cb.get( "mytest", function (err, value, meta) {
-      console.log("Value : "+ value);
-      
-      
-    	cb.add( "mytest" ,  "my value" , function (err, meta) {
-    	  if (err) {
-    	    console.log(err);
-    	  } else {
-    	    console.log("It should have failed..");
-    	  }
-    	  
-    	});
-      
-      
-  	});
+
+	console.log("Set a Key-Value and Get the Key-Value");
+	cb.set("mytest", "my value", function(err, meta) {
+		// in the call back
+		cb.get("mytest", function(err, value, meta) {
+			console.log("cb.get(\"mytest\") : " + value);
+
+			console.log("\nTry to Add the same key, raises exception");
+			cb.add("mytest", "my value", function(err, meta) {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log("It should have failed..");
+				}
+
+				cb.replace("mytest", "my value replaced", function(err, meta) {
+					console.log("\nReplace the key-value with Replace");
+					cb.get("mytest", function(err, value, meta) {
+						console.log("cb.get(\"mytest\") : " + value);
+						
+						console.log("\nTry to replace non existant key");
+						cb.replace("mytest4", "my value4 replaced", function(err, meta) {
+							if (err) {
+								console.log(err);
+							} else {
+								console.log("It should have failed..");
+							}
+							
+							console.log("\n--------------------------------------------------------------------------");
+							process.exit(0);
+							
+						});
+						
+					});
+				});
+			});
+		});
 	});
 
-
-		
-		
 });
-
-// 
-// 
-// 
-// 
-// // create a key
-// cb.set("mytest", "my value")
-// puts cb.get("mytest")
-// 
-// // this raises key exists exception, uncomment to see error
-// cb.add("mytest", "my value added")
-// 
-// // success
-// cb.replace("mytest", "my value replaced")
-// puts cb.get("mytest")
-// 
-// // this raises exception (doesn’t exist)
-// cb.replace("mytest4", "my value4 replaced") 
-// 
-// // success
-// cb.add("mytest3", "my value3") 
-// puts cb.get("mytest3")
-// 
-// cb.delete("mytest")
-// cb.delete("mytest3")
-// 
-// 
-// // both of these return nil class
-// puts cb.get("mytest").class.to_s
-// puts cb.get("mytest3").class.to_s
-
