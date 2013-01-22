@@ -1,14 +1,11 @@
-# Mac OS X                                                       
-
+# Mac OS X
 
 ## Install C Library via Homebrew
 
 Uninstall Previous Version, if you have it...
 
     $ brew uninstall libcouchbase
-
-    $ brew install https://github.com/couchbase/homebrew/raw/stable/Library/Formula/libcouchbase.rb
-
+    $ brew install libcouchbase
 
 ## Install Couchbase Gem
 
@@ -28,21 +25,11 @@ Uninstall Previous Version, if you have it...
 
 ## References
 
-
-Couchbase Ruby    - http://www.couchbase.com/develop/ruby/current
-
-API Reference     - http://www.couchbase.com/docs/couchbase-sdk-ruby-1.2/couchbase-sdk-ruby-summary.html
-
-RDoc              - http://www.couchbase.com/autodocs/couchbase-ruby-client-1.2.0/index.html
-
-Github Gem Repo   - https://github.com/couchbase/couchbase-ruby-client
-
-
-Couchbase Ruby Model      - https://github.com/couchbase/couchbase-ruby-model
-
-Couchbase EventMachine    - https://github.com/couchbase/couchbase-ruby-client-em
-
-
-
-
-
+<table>
+<tr><td>Couchbase Ruby</td>         <td>http://www.couchbase.com/develop/ruby/current</td></tr>
+<tr><td>API Reference</td>          <td>http://www.couchbase.com/docs/couchbase-sdk-ruby-1.2/couchbase-sdk-ruby-summary.html</td></tr>
+<tr><td>RDoc</td>                   <td>http://www.couchbase.com/autodocs/couchbase-ruby-client-1.2.0/index.html</td></tr>
+<tr><td>Github Gem Repo</td>        <td>https://github.com/couchbase/couchbase-ruby-client</td></tr>
+<tr><td>Couchbase Ruby Model</td>   <td>https://github.com/couchbase/couchbase-ruby-model</td></tr>
+<tr><td>Couchbase EventMachine</td> <td>http://review.couchbase.org/23347</td></tr>
+</table>
