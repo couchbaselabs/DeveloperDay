@@ -63,8 +63,10 @@
     <Compile Include="Labs\02_Storage.cs" />
     <Compile Include="Labs\03_JSONStorage.cs" />
     <Compile Include="Labs\04_Retrieve.cs" />
-    <Compile Include="Labs\05_CAS.cs" />
-    <Compile Include="Labs\06_Observe.cs" />
+    <Compile Include="Labs\05_AtomicCounters.cs" />
+    <Compile Include="Labs\06_CAS.cs" />
+    <Compile Include="Labs\07_Observe.cs" />
+    <Compile Include="Labs\08_Views.cs" />
     <Compile Include="Labs\LabBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

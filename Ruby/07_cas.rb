@@ -1,10 +1,14 @@
 #!/usr/bin/env ruby
 
+require "rubygems"
 require "couchbase"
+require "rainbow"
+require "pp"
 
 system 'clear'
-puts "--------------------------------------------------------------------------"
-puts "Couchbase - Compare and Swap"
+puts "--------------------------------------------------------------------------".bright.foreground(:red)
+puts "Couchbase - Compare and Swap".bright.foreground(:red)
+puts "--------------------------------------------------------------------------".bright.foreground(:red)
 puts
 
 # establish connection, all different ways
@@ -27,8 +31,8 @@ puts
 ### Part 1 - Initialize and Retrieve CAS
 ### ------------------------------------------------------------------------------------------
 
-puts "-------------------------------------"
-puts "Set the Data, then Retrieve Two Copies of the Document"
+puts "--------------------------------------------------------------------------".bright.foreground(:red)
+puts "Set the Data, then Retrieve Two Copies of the Document".bright.foreground(:red)
 puts 
 
 # Initialize the documents
@@ -46,8 +50,8 @@ puts
 ### Part 2 - Compare CAS
 ### ------------------------------------------------------------------------------------------
 
-puts "-------------------------------------"
-puts "Now We'll update the document which results in a new CAS"
+puts "--------------------------------------------------------------------------".bright.foreground(:red)
+puts "Now We'll update the document which results in a new CAS".bright.foreground(:red)
 puts
 
 # add 1 to the logins count in document
@@ -66,8 +70,8 @@ puts
 ### Part 3 - Try another operation with original CAS
 ### ------------------------------------------------------------------------------------------
 
-puts "-------------------------------------"
-puts "If we try to update the document from the second copy, it will fail"
+puts "--------------------------------------------------------------------------".bright.foreground(:red)
+puts "If we try to update the document from the second copy, it will fail".bright.foreground(:red)
 puts
 
 # this should fail
@@ -81,5 +85,5 @@ end
 
 
 puts
-puts "--------------------------------------------------------------------------"
+puts "--------------------------------------------------------------------------".bright.foreground(:red)
 puts

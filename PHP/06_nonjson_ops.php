@@ -58,7 +58,7 @@ echo "Store Binary Blobs\n";
 
 // read file
 echo "\nRead file\n";
-$image = file_get_contents('../../Binary/lolcat.jpg');
+$image = file_get_contents('../Binary/lolcat.jpg');
 $image_data = base64_encode($image);
 $cb->set("img", $image_data, 10);
 

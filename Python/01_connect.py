@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# sudo pip install blessings (for color terminal output)
 import os 
 import inspect
 from couchbase.client import Couchbase

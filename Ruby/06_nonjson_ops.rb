@@ -73,7 +73,7 @@ if File.file?("./output.jpg")
   File.delete("./output.jpg")
 end
 
-source = "../../Binary/lolcat.jpg"
+source = "../Binary/lolcat.jpg"
 binary_img = nil
 
 puts "Read jpg from disk".bright
