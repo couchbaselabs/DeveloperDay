@@ -39,7 +39,6 @@ public class Ex03StorageJson {
             cb = new CouchbaseClient(uris, "default", "");
 
 
-
             {
                 System.out.println(" Store simple JSON");
                 cb.set("mydoc", 0, "{\"doctype\":\"test\", \"name\":\"John Smith\"}");
