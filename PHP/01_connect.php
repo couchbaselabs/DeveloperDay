@@ -24,6 +24,6 @@ var_dump( $default->getStats() ); //dump some infos from the bucket
 echo("\n--- 'No' Bucket ---\n");
 var_dump( $dummy->getStats() );  //error
 
-echo("\n----------\n");
+echo "--------------------------------------------------------------------------\n";
 
 ?>
