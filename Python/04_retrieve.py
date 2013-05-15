@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 # -*- coding" utf-8 -*-
 
-import os 
+import os
+import json
+
 from couchbase.client import Couchbase
 from blessings import Terminal
-import json
-import hashlib
+
+import secret
 
 # establish connection
-couchbase = Couchbase("127.0.0.1:8091", "default", "")
+couchbase = Couchbase(secret.HOSTPORT,
+    username=secret.USERNAME, password=secret.PASSWORD)
 
 # connect to default bucket
 cb = couchbase["default"]

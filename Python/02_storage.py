@@ -2,9 +2,12 @@
 # -*- coding: utf-8 -*-
 
 # sudo pip install blessings (for color terminal output)
-import os 
+import os
+
 from couchbase.client import Couchbase
 from blessings import Terminal
+
+import secret
 
 t = Terminal()
 
@@ -15,7 +18,8 @@ print t.bold_red("--------------------------------------------------------------
 print
 
 # establish connection
-couchbase = Couchbase("127.0.0.1:8091", "default", "")
+couchbase = Couchbase(secret.HOSTPORT,
+    username=secret.USERNAME, password=secret.PASSWORD)
 
 # connect to default bucket
 cb = couchbase["default"]
