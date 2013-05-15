@@ -1,0 +1,6 @@
+blessings==1.5
+couchbase==0.8.2
+requests==1.1.0
+unittest2==0.5.1
+uuid==1.30
+wsgiref==0.1.2
