@@ -41,7 +41,7 @@ public class Ex03StorageJson {
 
             {
                 System.out.println(" Store simple JSON");
-                cb.set("mydoc", 0, "{\"doctype\":\"test\", \"name\":\"John Smith\"}");
+                cb.set("mydoc", "{\"doctype\":\"test\", \"name\":\"John Smith\"}");
                 System.out.println("Stored value :"+ cb.get("mydoc") );
                 System.out.println();
             }
@@ -53,7 +53,7 @@ public class Ex03StorageJson {
                 simpleDoc.name = "John Doe";
                 Gson json = new Gson();
                 String jsonString = json.toJson( simpleDoc );
-                cb.set("mydoc2", 0, "{\"doctype\":\"test\", \"name\":\"John Smith\"}");
+                cb.set("mydoc2", jsonString);
                 System.out.println("GSON value  :"+ cb.get("mydoc2") );
 
                 simpleDoc = json.fromJson( cb.get("mydoc2").toString(), SimpleDoc.class );
