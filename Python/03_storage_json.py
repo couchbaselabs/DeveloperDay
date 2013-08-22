@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import os 
-from couchbase.client import Couchbase
+from couchbase import Couchbase
 from blessings import Terminal
+from pprint import pprint
 import json
 import hashlib
 
@@ -15,54 +16,44 @@ print t.bold_red("Couchbase JSON Document Storage Operations")
 print t.bold_red("--------------------------------------------------------------------------")
 print
 
-# establish connection
-couchbase = Couchbase("127.0.0.1:8091", "default", "")
+# connect to the default bucket
+cb = Couchbase.connect(bucket='default')
 
-# connect to default bucket
-cb = couchbase["default"]
-
+# Create a new dictionary
 mydoc = \
 {
    "doctype": "test",
    "name": "John Smith"
 }
 
-
-
-
-print t.bold("Set a Document with json.dumps(hash)")
+print t.bold("Set a Document")
 print
 
-# store a json doc (encode it)
-cb.set("mydoc", 0, 0, json.dumps(mydoc))
-
-
-
-
-print t.bold("Retrieve document with json.loads(doc)")
+# store a json doc (automatically converted from dictionary to JSON)
+print cb.set("mydoc", mydoc)
 print
 
-
+print t.bold("Get a Document")
+print
 
 # retrieve, get type of value, and attempt parse of json if string
 val = cb.get("mydoc")
-vtype = type(val[2])
 
-print "Type of the value retrieved: " + str(vtype)
+print t.bold("Pretty print a document")
 print
 
-if vtype is str:
-	print t.bold("Attempt parse of string as JSON...")
-	print
-	try:
-		doc = json.loads(val[2])
-		print json.dumps(doc)
-		print
-		print "doc[\"name\"] = " + str(doc["name"])
-	except:
-		print "JSON parse failed, must not be a JSON document"
-	
+# pretty print the document
+pprint(val.value, indent=4)
+print
 
+print t.bold("Print the document as JSON")
+print
+
+print json.dumps(val.value)
+print
+
+print t.bold("Delete the document")
+print
 
 # delete the test docs to repeat tests 
 cb.delete("mydoc")
