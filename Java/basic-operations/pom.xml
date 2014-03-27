@@ -9,42 +9,28 @@
     <url>http://maven.apache.org</url>
 
 
-    <repositories>
-            <repository>
-                <id>spy</id>
-                <name>Couchbase Repository</name>
-                <layout>default</layout>
-                <url>http://files.couchbase.com/maven2/</url>
-            </repository>
-    </repositories>
-
-
     <dependencies>
-
+ 
         <dependency>
-            <groupId>couchbase</groupId>
-            <artifactId>couchbase-client</artifactId>
-            <version>1.1.8</version>
-            <type>jar</type>
-        </dependency>
-
+           <groupId>com.couchbase.client</groupId>
+           <artifactId>couchbase-client</artifactId>
+	   <version>1.3.2</version>
+	</dependency>
+ 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
-
+ 
         <!--  Gson: Java to Json conversion -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.2.2</version>
-            <scope>compile</scope>
+            <version>2.2.4</version>
         </dependency>
-
-
-
+ 
     </dependencies>
 
 
