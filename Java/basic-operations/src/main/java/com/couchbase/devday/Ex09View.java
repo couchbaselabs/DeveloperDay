@@ -36,7 +36,7 @@ public class Ex09View {
 
             Gson json = new Gson();
 
-            DesignDocument designDocument = cb.getDesignDocument("beer");
+            DesignDocument designDocument = cb.getDesignDoc("beer");
             List<ViewDesign> views = designDocument.getViews();
 
             for (ViewDesign view : views) {
