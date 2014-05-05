@@ -1,9 +1,13 @@
-var couchnode = require('couchbase');
+var Connection = require('couchbase').Connection;
 
 console.log("--------------------------------------------------------------------------");
 console.log("Couchbase Retrieval Operations");
 console.log("--------------------------------------------------------------------------");
 
+function formatCas(cas) {
+    // pretty-print the CAS properly
+    return cas[0] + "" + cas[1];
+}
 
 var userData1 = {
   doctype : "learn",
@@ -23,34 +27,33 @@ var userData2 = {
   logins : 0
 }
 
-couchnode.connect({
+var cb = new Connection({
 	"password": "",
-	"hosts": ["localhost:8091"],
+	"host": "localhost",
 	"bucket": "default"
-}, function(err, cb) {
+}, function(err) {
 	if (err) {
 		throw (err)
 	}
 
 
 
-	cb.set( userData1.email , userData1, function(err, meta) {
-		var metaUser1 = meta;
-		cb.set( userData2.email , userData2, function(err, meta) {
+	cb.set( userData1.email , userData1, function(err, result) {
+		var resultUser1 = result;
+		cb.set( userData2.email , userData2, function(err, result) {
 			console.log( "User 1 and User2 saved" );
-			var metaUser2 = meta;
+			var resultUser2 = result;
 
-			console.log("CAS User 1:"+ metaUser1.cas.str);
-			console.log("CAS USer 2:"+ metaUser2.cas.str);
-
+			console.log("CAS User 1:" + formatCas(resultUser1.cas));
+			console.log("CAS USer 2:" + formatCas(resultUser2.cas));
 
 			console.log("\nUpdate the doc and check the CAS");
 			userData1.logins += 1;
 
-			cb.set( userData1.email , userData1, function(err, meta) {
+			cb.set( userData1.email , userData1, function(err, result) {
 				console.log("Different CAS  ");
-				console.log("\tBefore update : "+metaUser1.cas.str);
-				console.log("\tAfter CAS : "+ meta.cas.str);
+				console.log("\tBefore update : " + formatCas(resultUser1.cas));
+				console.log("\tAfter CAS : " + formatCas(result.cas));
 				
 				
 				console.log("\n--------------------------------------------------------------------------");
