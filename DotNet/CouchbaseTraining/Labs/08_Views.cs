@@ -12,8 +12,8 @@ namespace CouchbaseTraining.Labs
 		public override void Run()
 		{
 			var config = new CouchbaseClientConfiguration();
-			config.Urls.Add(new Uri("http://localhost:8091/pools/"));
-			config.Bucket = "default";
+            config.Urls.Add(new Uri("http://localhost:8091/pools/"));
+			config.Bucket = "beer-sample";
 
 			var client = new CouchbaseClient(config);
 
@@ -24,21 +24,21 @@ namespace CouchbaseTraining.Labs
 			view = client.GetView("breweries", "by_name").Limit(10);
 			foreach (var item in view)
 			{
-				Console.WriteLine("Key: " + item.ViewKey);
+				Console.WriteLine("Key: " + item.ViewKey.First());
 			}
 
 			Console.WriteLine("Breweries by_name, query by key range (y or Y)");
 			view = client.GetView("breweries", "by_name").StartKey("y").EndKey("z");
 			foreach (var item in view)
 			{
-				Console.WriteLine("Key: " + item.ViewKey);
+				Console.WriteLine("Key: " + item.ViewKey.First());
 			}
 
 			Console.WriteLine("Breweries by_name, output the keys (y only)");
 			view = client.GetView("breweries", "by_name").StartKey("y").EndKey("Y");
 			foreach (var item in view)
 			{
-				Console.WriteLine("Key: " + item.ViewKey);
+				Console.WriteLine("Key: " + item.ViewKey.First());
 			}
 		}
 	}

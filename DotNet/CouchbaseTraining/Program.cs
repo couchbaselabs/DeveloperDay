@@ -22,7 +22,8 @@ namespace CouchbaseTraining
 			var lab = options[int.Parse(choice)-1].Replace(" ", "");
 
 			var obj = Type.GetType("CouchbaseTraining.Labs." + lab + "Lab").GetConstructor(Type.EmptyTypes).Invoke(null);
-			var method = obj.GetType().GetMethod("Run").Invoke(obj, null);
+			
+            var method = obj.GetType().GetMethod("Run").Invoke(obj, null);
 		}
 	}
 }
