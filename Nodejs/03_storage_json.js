@@ -1,14 +1,14 @@
-var couchnode = require('couchbase');
+var Connection = require('couchbase').Connection;
 
 console.log("--------------------------------------------------------------------------");
 console.log("Couchbase JSON Doc Storage");
 console.log("--------------------------------------------------------------------------");
 
-couchnode.connect({
+var cb = new Connection({
 	"password": "",
-	"hosts": ["localhost:8091"],
+    "host": "localhost",
 	"bucket": "default"
-}, function(err, cb) {
+}, function(err) {
 	if (err) {
 		throw (err)
 	}
@@ -20,12 +20,12 @@ couchnode.connect({
 	};
 	
 	console.log("Set Document");
-	cb.set("mydoc", myDoc, function(err, meta) {
+	cb.set("mydoc", myDoc, function(err, result) {
 		// in the call back
-		cb.get("mydoc", function(err, value, meta) {
-			console.log('mydoc.name : '+ value.name);
+		cb.get("mydoc", function(err, result) {
+			console.log('mydoc.name : '+ result.value.name);
 
-			cb.touch("mydoc", 10, function(err, meta) {
+			cb.touch("mydoc", 10, function(err, result) {
 				console.log(" Touch the doc with TTL");
 				console.log("\n--------------------------------------------------------------------------");
 				process.exit(0);

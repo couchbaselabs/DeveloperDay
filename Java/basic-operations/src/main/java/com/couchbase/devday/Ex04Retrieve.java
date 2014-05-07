@@ -101,7 +101,7 @@ public class Ex04Retrieve {
                 System.out.println("--------------------------------------------------------------------------");
                 System.out.println("Create 9 Keys and do Multi-Get");
 
-                List<String> keys = new ArrayList();
+                List<String> keys = new ArrayList<String>();
                 for (int i = 1 ; i<10 ; i++) {
                     // put a gap in the list to show missing item
                     if ( i != 3 ) {

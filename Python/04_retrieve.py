@@ -3,6 +3,7 @@
 
 import os 
 from couchbase import Couchbase
+from couchbase.exceptions import KeyExistsError
 from blessings import Terminal
 import json
 import hashlib
@@ -63,17 +64,24 @@ print t.bold("Retrieve Doc and Inspect CAS")
 print
 kv = cb.get(user_data1["email"])
 print kv
-print "cas = " + str(kv.cas)
 
 print t.bold_red("--------------------------------------------------------------------------")
 print t.bold_red("Update doc and look at cas")
 print
 
 kv.value["logins"] += 1
-cb.replace(kv.value["email"], kv.value)
+cb.replace(kv.value["email"], kv.value, cas=kv.cas)
 
 kv = cb.get(user_data1["email"])
 print kv
-print "cas = " + str(kv.cas)
+
+
+print t.bold_red("--------------------------------------------------------------------------")
+print t.bold_red("Data Consistency: Try to update with invalid CAS")
+print ""
+try:
+    cb.replace(kv.value["email"], kv.value, cas=0xdeadbeef)
+except KeyExistsError as e:
+    print e
 
 print t.bold_red("--------------------------------------------------------------------------")
